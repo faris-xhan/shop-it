@@ -12,19 +12,10 @@ import {
   ListItemAvatar,
   Avatar,
 } from "@mui/material";
-import { styled } from "@mui/material/styles";
 import { useState } from "react";
+import DrawerHeader from "./DrawerHeader";
 
 const drawerWidth = 380;
-const DrawerHeader = styled("div")(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-between",
-  padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
-  ...theme.mixins.toolbar,
-}));
-
 const ShoppingCart = (props) => {
   const { toggleDrawer, state } = props;
   const [products, setProduct] = useState([
