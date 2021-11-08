@@ -18,6 +18,7 @@ import DrawerHeader from "./DrawerHeader";
 const drawerWidth = 380;
 const ShoppingCart = (props) => {
   const { toggleDrawer, state } = props;
+  // eslint-disable-next-line
   const [products, setProduct] = useState([
     {
       id: 1,
