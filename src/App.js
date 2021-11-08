@@ -1,7 +1,14 @@
+import { Grid, Typography } from "@mui/material";
 import React from "react";
 
 function App() {
-  return <div>Hello React</div>;
+  return (
+    <Grid>
+      <Typography variant="h1" color="primary">
+        Hello Material Ui
+      </Typography>
+    </Grid>
+  );
 }
 
 export default App;
