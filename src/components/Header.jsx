@@ -1,9 +1,11 @@
 import { AppBar, Toolbar, Typography } from "@mui/material";
 import { useState } from "react";
 import Searchbar from "./Searchbar";
+import ShoppingCart from "./ShoppingCart";
 
 const Header = (props) => {
   const [state, setState] = useState(false);
+  const [shoppingCartState, setShoppingCartState] = useState(false);
   const toggleDrawer = (state) => (event) => {
     if (
       event &&
@@ -15,6 +17,19 @@ const Header = (props) => {
 
     setState(state);
   };
+
+  const toggleShoppingCart = (state) => (event) => {
+    if (
+      event &&
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+
+    setShoppingCartState(state);
+  };
+
   return (
     <AppBar elevation={0} color="transparent">
       <Toolbar position="static">
@@ -23,6 +38,10 @@ const Header = (props) => {
           <span style={{ fontWeight: "bold" }}>it</span>
         </Typography>
         <Searchbar toggleDrawer={toggleDrawer} state={state} />
+        <ShoppingCart
+          toggleDrawer={toggleShoppingCart}
+          state={shoppingCartState}
+        />
       </Toolbar>
     </AppBar>
   );
