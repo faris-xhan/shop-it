@@ -1,12 +1,11 @@
-import { Grid, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
+import Header from "./components/Header";
 import React from "react";
 
 function App() {
   return (
     <Grid>
-      <Typography variant="h1" color="primary">
-        Hello Material Ui
-      </Typography>
+      <Header />
     </Grid>
   );
 }
