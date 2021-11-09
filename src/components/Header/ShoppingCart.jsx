@@ -16,6 +16,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   selectAllShoppingCartProducts,
   productRemoved,
+  selectTotalPrice,
 } from "../../features/shoppingCart/shoppingCartSlice";
 import DrawerHeader from "./DrawerHeader";
 
@@ -24,6 +25,7 @@ const drawerWidth = 380;
 const ShoppingCart = (props) => {
   const { toggleDrawer, state } = props;
   const products = useSelector(selectAllShoppingCartProducts);
+  const totalPrice = useSelector(selectTotalPrice);
 
   return (
     <div>
@@ -60,6 +62,17 @@ const ShoppingCart = (props) => {
             <ShoppingCartItem key={product.id} {...product} />
           ))}
         </List>
+        <div style={{ flexGrow: 1 }} />
+        {totalPrice ? (
+          <>
+            <Divider />
+            <ListItem component="div">
+              <Typography variant="h4">TOTAL PRICE: {totalPrice}</Typography>
+            </ListItem>
+          </>
+        ) : (
+          ""
+        )}
       </SwipeableDrawer>
     </div>
   );
