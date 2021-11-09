@@ -75,7 +75,12 @@ const Footer = (props) => {
               <SubscribeInput />
               <FormHelperText>Get the freshest news from us</FormHelperText>
             </FormControl>
-            <Button variant="contained" color="error" disableElevation>
+            <Button
+              type="submit"
+              variant="contained"
+              color="error"
+              disableElevation
+            >
               Subscribe
             </Button>
           </Box>
