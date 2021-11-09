@@ -31,6 +31,7 @@ const renderDotsItem = ({ isActive }) => {
 };
 
 const Carousel = (props) => {
+  // eslint-disable-next-line
   const [items, setItems] = useState(featuredProducts);
   const renderedItems = items.map((item) => (
     <FeaturedItem key={item.title} {...item} />
