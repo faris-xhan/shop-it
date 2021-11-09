@@ -52,6 +52,7 @@ const Footer = (props) => {
       style={{ padding: "5rem 1rem 0rem 1rem", flexWrap: "wrap" }}
     >
       <Grid
+        item
         xs={12}
         style={{ display: "flex", justifyContent: "space-between" }}
       >
