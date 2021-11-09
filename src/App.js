@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Divider, Grid } from "@mui/material";
 import Header from "./components/Header/Header";
 import React from "react";
 import Categories from "./components/Categories/Categories";
@@ -9,6 +9,7 @@ function App() {
     <Grid>
       <Header />
       <FeaturedProducts />
+      <Divider />
       <Categories />
     </Grid>
   );
