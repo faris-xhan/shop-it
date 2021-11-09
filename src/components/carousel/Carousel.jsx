@@ -17,6 +17,8 @@ import { Box } from "@mui/system";
 import { ShoppingCart } from "@mui/icons-material";
 import { useState } from "react";
 import { featuredProducts } from "../../__mock__/featured_products";
+import { useDispatch } from "react-redux";
+import { productAdded } from "../../features/shoppingCart/shoppingCartSlice";
 
 const renderDotsItem = ({ isActive }) => {
   return isActive ? (
@@ -34,7 +36,7 @@ const Carousel = (props) => {
   // eslint-disable-next-line
   const [items, setItems] = useState(featuredProducts);
   const renderedItems = items.map((item) => (
-    <FeaturedItem key={item.title} {...item} />
+    <FeaturedItem key={item.id} product={item} />
   ));
 
   return (
@@ -50,28 +52,32 @@ const Carousel = (props) => {
 export default Carousel;
 
 const FeaturedItem = (props) => {
-  const { title, mediaSrc, current_price, review, rating, totalReviews, href } =
-    props;
+  const { product } = props;
+  const shoppingCartDispatch = useDispatch();
   return (
     <Grid
       container
       className="item"
-      data-value={title.id}
+      data-value={product.id}
       justifyContent="center"
       alignItems="center"
     >
       <Grid item xs={12} md="auto" style={{ maxWidth: "400px" }}>
-        <img src={mediaSrc} alt="new product" style={{ width: "100%" }} />
+        <img
+          src={product?.media[0]}
+          alt="new product"
+          style={{ width: "100%" }}
+        />
       </Grid>
       <Grid item xs={12} md="auto" style={{ flexGrow: 1 }}>
         <Card elevation={0}>
           <CardContent>
             <Typography variant="h3" component="div">
-              {title}
+              {product.title}
             </Typography>
 
             <Typography variant="body1" gutterBottom>
-              {current_price}
+              {product.current_price}
             </Typography>
             <Divider style={{ maxWidth: "80ch" }} />
             <Typography
@@ -81,17 +87,17 @@ const FeaturedItem = (props) => {
               sx={{ mt: 1 }}
               gutterBottom
             >
-              {review}
+              {product.description}
             </Typography>
             <Box display="flex" alignItems="flex-end">
               <Rating
                 name="text-feedback"
-                value={rating}
+                value={product.reviews.length}
                 readOnly
                 precision={0.5}
               />
               <Typography component="p" variant="subtitle2" sx={{ ml: 1 }}>
-                {totalReviews} reviews
+                {product.reviews.length} reviews
               </Typography>
             </Box>
           </CardContent>
@@ -102,10 +108,14 @@ const FeaturedItem = (props) => {
                 startIcon={<ShoppingCart />}
                 variant="contained"
                 disableElevation
+                onClick={() => shoppingCartDispatch(productAdded(product))}
               >
                 Add to Cart
               </Button>
-              <Button href={href} variant="outlined">
+              <Button
+                href={`/product/${product.title.replace(/\s/g, "-")}`}
+                variant="outlined"
+              >
                 Learn More
               </Button>
             </Stack>

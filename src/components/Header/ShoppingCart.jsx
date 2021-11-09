@@ -12,21 +12,18 @@ import {
   ListItemAvatar,
   Avatar,
 } from "@mui/material";
-import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  selectAllShoppingCartProducts,
+  productRemoved,
+} from "../../features/shoppingCart/shoppingCartSlice";
 import DrawerHeader from "./DrawerHeader";
 
 const drawerWidth = 380;
+
 const ShoppingCart = (props) => {
   const { toggleDrawer, state } = props;
-  // eslint-disable-next-line
-  const [products, setProduct] = useState([
-    {
-      id: 1,
-      title: "New Bag",
-      price: "200",
-      mediaSrc: "/images/product.jpg",
-    },
-  ]);
+  const products = useSelector(selectAllShoppingCartProducts);
 
   return (
     <div>
@@ -71,21 +68,34 @@ const ShoppingCart = (props) => {
 export default ShoppingCart;
 
 const ShoppingCartItem = (props) => {
-  const { title, price, mediaSrc } = props;
+  const { id, title, current_price, media, currency } = props;
+  const shoppingCartDispatch = useDispatch();
+
   return (
     <ListItem
       secondaryAction={
-        <IconButton edge="end" aria-label="delete">
+        <IconButton
+          edge="end"
+          aria-label="delete"
+          onClick={(event) => shoppingCartDispatch(productRemoved(id))}
+        >
           <Delete />
         </IconButton>
       }
     >
       <ListItemAvatar>
         <Avatar variant="square">
-          <img src={mediaSrc} alt={title} style={{ width: "100%" }} />
+          <img
+            src={media.length && media[0]}
+            alt={title}
+            style={{ width: "100%" }}
+          />
         </Avatar>
       </ListItemAvatar>
-      <ListItemText primary={title} secondary={price} />
+      <ListItemText
+        primary={title}
+        secondary={`${currency} ${current_price}`}
+      />
     </ListItem>
   );
 };

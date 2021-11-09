@@ -6,10 +6,12 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Grid, Rating } from "@mui/material";
 import { Box } from "@mui/system";
+import { productAdded } from "../features/shoppingCart/shoppingCartSlice";
+import { useDispatch } from "react-redux";
 
 const ProductCard = (props) => {
   const { product } = props;
-  console.log(product);
+  const shoppingCartDispatch = useDispatch();
   return (
     <Grid item xs={12} sm={12} md={4} lg={3} xxl={3}>
       <Card elevation={0}>
@@ -49,7 +51,12 @@ const ProductCard = (props) => {
           </Box>
         </CardContent>
         <CardActions>
-          <Button variant="contained" disableElevation size="small">
+          <Button
+            variant="contained"
+            disableElevation
+            size="small"
+            onClick={() => shoppingCartDispatch(productAdded(product))}
+          >
             Add to Cart
           </Button>
           <Button variant="outlined" size="small">
