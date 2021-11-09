@@ -124,10 +124,9 @@ export default function ButtonBases() {
       sx={{ display: "flex", flexWrap: "wrap", minWidth: 300, width: "100%" }}
     >
       {categories.map((category) => (
-        <Grid item xs={12} sm={12} md={6} lg={4}>
+        <Grid key={category.title} item xs={12} sm={12} md={6} lg={4}>
           <CategoryButton
             focusRipple
-            key={category.title}
             style={{
               width: category.width,
             }}
