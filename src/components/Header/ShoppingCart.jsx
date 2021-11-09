@@ -11,6 +11,7 @@ import {
   ListItem,
   ListItemAvatar,
   Avatar,
+  Badge,
 } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -30,7 +31,9 @@ const ShoppingCart = (props) => {
   return (
     <div>
       <IconButton onClick={toggleDrawer(true)}>
-        <ShoppingCartIcon />
+        <Badge badgeContent={products.length} color="primary">
+          <ShoppingCartIcon />
+        </Badge>
       </IconButton>
       <SwipeableDrawer
         anchor="right"
