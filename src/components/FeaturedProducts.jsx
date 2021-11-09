@@ -3,7 +3,7 @@ import Carousel from "./carousel/Carousel";
 
 const FeaturedProducts = (props) => {
   return (
-    <Grid>
+    <Grid sx={{ p: 1 }}>
       <Carousel />
     </Grid>
   );

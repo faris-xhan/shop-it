@@ -31,7 +31,7 @@ const Header = (props) => {
   };
 
   return (
-    <AppBar position="static" elevation={0} color="transparent">
+    <AppBar position="static" color="transparent">
       <Toolbar>
         <Typography variant="h5" style={{ flexGrow: 1 }}>
           Shop-
