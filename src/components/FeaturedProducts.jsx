@@ -1,9 +1,10 @@
 import { Grid } from "@mui/material";
+import Carousel from "./carousel/Carousel";
 
 const FeaturedProducts = (props) => {
   return (
     <Grid>
-      <h1>Featured Products</h1>
+      <Carousel />
     </Grid>
   );
 };
