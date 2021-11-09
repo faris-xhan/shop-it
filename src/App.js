@@ -4,6 +4,7 @@ import React from "react";
 import Categories from "./components/Categories/Categories";
 import FeaturedProducts from "./components/FeaturedProducts";
 import TrendyItems from "./components/TrendyItems";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Divider />
       <Categories />
       <TrendyItems />
+      <Footer />
     </Grid>
   );
 }
