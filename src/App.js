@@ -14,6 +14,7 @@ function App() {
       <Divider />
       <Categories />
       <TrendyItems />
+      <Divider />
       <Footer />
     </Grid>
   );

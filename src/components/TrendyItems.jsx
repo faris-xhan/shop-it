@@ -7,7 +7,10 @@ const TrendyItems = (props) => {
   // eslint-disable-next-line
   const [products, setProducts] = useState(dummyProduct);
   return (
-    <Grid sx={{ p: 1 }}>
+    <Grid
+      sx={{ p: 1, mt: 2, mb: 2 }}
+      style={{ paddingTop: "2rem", paddingBottom: "2rem" }}
+    >
       <Typography variant="h3" textAlign="center">
         Trendy Items
       </Typography>
