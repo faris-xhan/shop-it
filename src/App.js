@@ -6,6 +6,7 @@ import HomeRoute from "./routes/Home.route";
 import Footer from "./components/Footer/Footer";
 import NotFoundRoute from "./routes/NotFound.route";
 import SearchRoute from "./routes/Search.route.";
+import ProductRoute from "./routes/Product.route";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Header />
       <Routes>
         <Route exact path="/" element={<HomeRoute />} />
+        <Route exact path="/product/:id" element={<ProductRoute />} />
         <Route path="/search" element={<SearchRoute />} />
         <Route path="*" element={<NotFoundRoute />} />
       </Routes>
