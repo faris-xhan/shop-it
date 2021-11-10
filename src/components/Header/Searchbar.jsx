@@ -7,6 +7,7 @@ const Searchbar = (props) => {
   const { toggleDrawer, state } = props;
   const [searchInput, setSearchInput] = useState("");
   const [andornmentType, setAndornmentType] = useState("search");
+
   const onClose = () => {
     setSearchInput("");
     setAndornmentType("close");
@@ -31,6 +32,7 @@ const Searchbar = (props) => {
         onOpen={toggleDrawer(true)}
       >
         <form
+          action="/search"
           style={{
             padding: "2rem 2rem 18rem 2rem",
           }}

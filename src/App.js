@@ -5,13 +5,15 @@ import React from "react";
 import HomeRoute from "./routes/Home.route";
 import Footer from "./components/Footer/Footer";
 import NotFoundRoute from "./routes/NotFound.route";
+import SearchRoute from "./routes/Search.route.";
 
 function App() {
   return (
     <Grid>
       <Header />
       <Routes>
-        <Route path="/" element={<HomeRoute />} />
+        <Route exact path="/" element={<HomeRoute />} />
+        <Route path="/search" element={<SearchRoute />} />
         <Route path="*" element={<NotFoundRoute />} />
       </Routes>
       <Divider />
