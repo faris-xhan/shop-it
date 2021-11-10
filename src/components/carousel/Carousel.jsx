@@ -1,4 +1,5 @@
 import AliceCarousel from "react-alice-carousel";
+import { Link as RouterLink } from "react-router-dom";
 import CircleIcon from "@mui/icons-material/Circle";
 import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
 import "react-alice-carousel/lib/alice-carousel.css";
@@ -113,7 +114,8 @@ const FeaturedItem = (props) => {
                 Add to Cart
               </Button>
               <Button
-                href={`/product/${product.title.replace(/\s/g, "-")}`}
+                component={RouterLink}
+                to={`/product/${product.id}`}
                 variant="outlined"
               >
                 Learn More

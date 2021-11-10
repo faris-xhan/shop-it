@@ -4,8 +4,10 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { Grid, Rating } from "@mui/material";
-import { Box } from "@mui/system";
+import Grid from "@mui/material/Grid";
+import Rating from "@mui/material/Rating";
+import Box from "@mui/system/Box";
+import { Link as RouterLink } from "react-router-dom";
 import { productAdded } from "../features/shoppingCart/shoppingCartSlice";
 import { useDispatch } from "react-redux";
 
@@ -55,11 +57,17 @@ const ProductCard = (props) => {
             variant="contained"
             disableElevation
             size="small"
+            sx={{ mr: 1 }}
             onClick={() => shoppingCartDispatch(productAdded(product))}
           >
             Add to Cart
           </Button>
-          <Button variant="outlined" size="small">
+          <Button
+            component={RouterLink}
+            to={`/product/${product.id}`}
+            variant="outlined"
+            size="small"
+          >
             Learn More
           </Button>
         </CardActions>
